@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="nav-bar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/kfj.jpeg') }}" width="75px">
+        </div>
+        <nav class="nav1">
+            <ul class="nav">
+                <li class="nav-link"><a href="/home">Home</a></li>
+                <li class="nav-link"><a href="/products">Products</a></li>
+                <li class="nav-link"><a href="/about">About</a></li>
+                <li class="nav-link"><a href="">Account</a></li>
+                <li class="nav-link"><a href="/viewcart">Cart</a></li>
+            </ul>
+        </nav>
+        
+
+    </div>
+    <div class="item">
+    {%for item in data%}
+        <div class="left">
+            <img src="{{ url_for('static', filename='images/' + item[4] ) }}" width="250px" class="item-image"><br>
+        </div>
+         <div class="right">
+            <h3 class="item-name">{{item[1]}}</h3>
+            <h5 class="item-price" >{{item[2]}} </h5>
+
+            <form action="{{url_for('add_to_cart')}}" class="size-dropdown" method="POST">
+                <input type="hidden" name="ProductID" value="{{item[0]}}"/>
+
+                <h4>Size:</h4 class="test123"> <br> 
+                <select name="size"  class="test69">
+                    <option value="starter" selected> Please select a size </option> 
+                    <option value="4"> 4 </option>
+                    <option value="5"> 5 </option> 
+                    <option value="6"> 6 </option> 
+                    <option value="7"> 7 </option> 
+                    <option value="8"> 8 </option> 
+                    <option value="9"> 9 </option> 
+                </select>
+                <br> <br>
+                <button type="submit" class="size-btn" >Add to Cart</button>
+            </form>
+            <br> 
+            <h5 class="item-desc-title">Product description</h5>
+            <p class="item-desc"> {{item[3]}}</p>
+        </div>
+    {% endfor %}
+    </div>
+
+</body>
+</html>

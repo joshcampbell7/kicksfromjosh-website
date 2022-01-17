@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="nav-bar">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/kfj.jpeg') }}" width="75px">
+            </div>
+            <nav class="nav1">
+                <ul class="nav">
+                    <li class="nav-link"><a href="/home">Home</a></li>
+                    <li class="nav-link"><a href="/products">Products</a></li>
+                    <li class="nav-link"><a href="/about">About</a></li>
+                    <li class="nav-link"><a href="/viewcart">Account</a></li>
+                    <li class="nav-link"><a href="/viewcart">Cart</a></li>
+                </ul>
+            </nav>
+            
+        </div>
+        
+    <div class="products">
+    {% for item in data %}
+    <table>
+        <tr id="Product-Image">
+            <td>
+                <img src="{{ url_for('static', filename='images/' + item[4]) }}" width="160px">
+            </td>
+        </tr>
+        <tr id="Product-Price">
+            <td>{{item[2]}}</td>
+        </tr>
+        <tr id="Product-Name">
+            <td><a href="{{ url_for('Productitems',Productid = item[0])}}">{{item[1]}}</a> 
+        </tr>
+    </table>
+    {% endfor %}
+    </div>
+    
+</body>
+</html>

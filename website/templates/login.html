@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="header"> 
+
+        <div class="container">
+            <div class="nav-bar">
+                <div class="logo">
+                    <img src="{{ url_for('static', filename='images/kfj.jpeg') }}" width="75px">
+                </div>
+                <nav class="nav1">
+                    <ul class="nav">
+                        <li class="nav-link"><a href="#">Home</a></li>
+                        <li class="nav-link"><a href="#">Products</a></li>
+                        <li class="nav-link"><a href="#">About</a></li>
+                        <li class="nav-link"><a href="#">Contact</a></li>
+                        <li class="nav-link"><a href="#">Account</a></li>
+                    </ul>
+                </nav>
+                <img src="{{ url_for('static', filename='images/shopping-bag--v1.png') }}" width="30px" height="30px">
+            </div>
+            
+            
+            </div>
+        </div>
+    </div>
+    <div class="login">
+        <h2>LOGIN</h2>
+        <form action="/login" method="POST">
+            <input type="text" placeholder="Email" name="Email" > <br> <br>
+            <input type="text" placeholder="Password" name="Password" > <br> <br>
+            <input class="btn" type="submit" value="Login">
+        </form>
+        
+
+            {{error}}
+
+    </div>
+
+
+
+
+</body>
+</html>
